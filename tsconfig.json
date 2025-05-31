@@ -15,17 +15,19 @@
     "experimentalDecorators": true,
     "moduleResolution": "bundler",
     "importHelpers": true,
-    "baseUrl": "./",
+    "baseUrl": "src",
     "target": "ES2022",
     "module": "ES2022",
     "paths": {
-    "@app/*": ["src/app/*"]
-}
-  },
-  "angularCompilerOptions": {
-    "enableI18nLegacyMessageIdFormat": false,
-    "strictInjectionParameters": true,
-    "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "@app/*": ["app/*"],
+    "@environments/*": ["environments/*"]
+
   }
+},
+"angularCompilerOptions": {
+  "enableI18nLegacyMessageIdFormat": false,
+  "strictInjectionParameters": true,
+  "strictInputAccessModifiers": true,
+  "strictTemplates": true
+}
 }

@@ -1,1 +1,15 @@
-<p>sidebar works!</p>
+
+
+<h2 class="sidebar-title">Búsquedas</h2>
+<hr class="divider">
+<ul class="list-group sidebar-list">
+  <li class="list-group-item sidebar-item" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+    Buscar País
+  </li>
+  <li class="list-group-item sidebar-item" routerLink="/region" routerLinkActive="active">
+    Por Región
+  </li>
+  <li class="list-group-item sidebar-item" routerLink="/capital" routerLinkActive="active">
+    Por Capital
+  </li>
+</ul>

@@ -1,6 +1,14 @@
+// main.ts bootstrap code
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
+import { provideRouter, withDebugTracing } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http'; // ← Importa esto
 import { AppComponent } from './app/app.component';
+import { routes } from './app/app.routes';
 
-bootstrapApplication(AppComponent, appConfig)
-  .catch((err) => console.error(err));
+
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideRouter(routes, withDebugTracing()),
+    provideHttpClient(), // ← Añade esta línea
+  ]
+}).catch(err => console.error(err));
