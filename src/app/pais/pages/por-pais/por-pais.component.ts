@@ -36,8 +36,11 @@ export class PorPaisComponent {
         error: (err) => {
           console.error('Error al buscar países:', err);
           this.hayError = true;
-          this.paises = [];
-        }
-      });
+          this.paises = [];}
+        });
+
+  }
+  sugerencias(termino: string): void {
+    this.hayError = false;
   }
 }
