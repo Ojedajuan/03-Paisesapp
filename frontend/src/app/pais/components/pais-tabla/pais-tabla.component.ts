@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { Country } from '@app/interfaces/pais.interface';
+import { Country } from '../../../interfaces/pais.interface';
 
 
 

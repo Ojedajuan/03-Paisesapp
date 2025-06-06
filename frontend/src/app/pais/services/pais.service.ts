@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Country } from '@app/interfaces/pais.interface';
+import { Country } from '../../interfaces/pais.interface';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -20,4 +20,13 @@ export class PaisService {
     const url = `${this.apiUrl}/capital/${termino}`;
     return this.http.get<Country[]>(url);
   }
+ getPaisPorAlpha(alpha: string): Observable<Country[]> {
+    return this.http.get<Country[]>(`${this.apiUrl}/alpha/${alpha}`);
+  }
+  getPaisesPorRegion(region: string): Observable<Country[]> {
+    const url = `${this.apiUrl}/region/${region}`;
+    return this.http.get<Country[]>(url);
+  }
+
+
 }

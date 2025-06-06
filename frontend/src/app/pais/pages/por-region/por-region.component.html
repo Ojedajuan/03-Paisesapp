@@ -1,0 +1,102 @@
+<div class="container-fluid py-4">
+  <!-- Header -->
+  <div class="header-section">
+    <h1 class="main-title">
+      <i class="fas fa-globe-americas"></i>
+      Buscar por Región
+    </h1>
+    <p class="subtitle">Explora países organizados por continentes</p>
+  </div>
+
+  <!-- Region Buttons -->
+  <div class="regions-container">
+    <h3 class="section-title">
+      <i class="fas fa-map"></i>
+      Selecciona una región
+    </h3>
+    
+    <div class="regions-grid">
+      <button 
+        *ngFor="let region of regiones"
+        class="region-btn"
+        [class.active]="regionActiva === region.code"
+        [disabled]="loading"
+        (click)="buscarPorRegion(region.code)">
+        <span class="region-icon">{{ region.icon }}</span>
+        <span class="region-name">{{ region.name }}</span>
+        <span class="region-indicator" *ngIf="regionActiva === region.code">
+          <i class="fas fa-check"></i>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Active Region Info -->
+  <div class="active-region-info" *ngIf="regionActiva">
+    <div class="info-card">
+      <h4>
+        <i class="fas fa-map-marked-alt"></i>
+        Región seleccionada: {{ getRegionName(regionActiva) }}
+      </h4>
+      <p *ngIf="!loading && !error">
+        Mostrando {{ paises.length }} países encontrados
+      </p>
+    </div>
+  </div>
+
+  <!-- Loading State -->
+  <div class="loading-container" *ngIf="loading">
+    <div class="loading-spinner"></div>
+    <p>Cargando países de {{ getRegionName(regionActiva) }}...</p>
+  </div>
+
+  <!-- Error State -->
+  <div class="error-container" *ngIf="error">
+    <div class="alert alert-danger">
+      <i class="fas fa-exclamation-triangle"></i>
+      Error al cargar los países. Por favor, intenta nuevamente.
+    </div>
+  </div>
+
+  <!-- Countries Grid -->
+  <div class="countries-section" *ngIf="paises.length > 0 && !loading && !error">
+    <h3 class="section-title">
+      <i class="fas fa-flag"></i>
+      Países en {{ getRegionName(regionActiva) }}
+    </h3>
+    
+    <div class="countries-grid">
+      <div class="country-card" *ngFor="let pais of paises">
+        <div class="country-flag">
+          <img [src]="pais.flags.png" [alt]="pais.name.common + ' flag'">
+        </div>
+        <div class="country-info">
+          <h5 class="country-name">{{ pais.name.common }}</h5>
+          <p class="country-details">
+            <i class="fas fa-city"></i>
+            {{ pais.capital[0] || 'Sin capital' }}
+          </p>
+          <p class="country-details">
+            <i class="fas fa-users"></i>
+            {{ pais.population | number }}
+          </p>
+        </div>
+        <div class="country-actions">
+          <button class="btn-view" [routerLink]="['/pais', pais.cca2]">
+            <i class="fas fa-eye"></i>
+            Ver detalles
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Empty State -->
+  <div class="empty-state" *ngIf="!regionActiva && !loading">
+    <div class="empty-content">
+      <i class="fas fa-globe-americas empty-icon"></i>
+      <h3>Selecciona una región</h3>
+      <p>Elige un continente para ver todos los países que pertenecen a esa región</p>
+    </div>
+  </div>
+</div>

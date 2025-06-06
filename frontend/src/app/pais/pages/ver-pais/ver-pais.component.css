@@ -1,0 +1,246 @@
+/* Contenedor principal */
+.main-container {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  margin: 2rem auto;
+  padding: 2rem;
+  max-width: 1200px;
+}
+
+/* Header del país */
+.country-header {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+  padding: 2rem;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.country-header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+/* Sección de información principal */
+.country-info {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.flag-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.flag-container:hover {
+  transform: scale(1.05);
+}
+
+.flag-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.info-item {
+  background: linear-gradient(135deg, #f8f9ff 0%, #e8f4fd 100%);
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  border-left: 4px solid #4facfe;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.info-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px rgba(79, 172, 254, 0.2);
+}
+
+.info-item strong {
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.info-item i {
+  color: #4facfe;
+  margin-right: 0.5rem;
+  width: 20px;
+  text-align: center;
+}
+
+/* Secciones de idiomas y traducciones */
+.section-card {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid #4facfe;
+  display: inline-block;
+}
+
+.section-title i {
+  color: #4facfe;
+  margin-right: 0.5rem;
+}
+
+/* Idiomas */
+.languages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.language-badge {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.8rem 1.2rem;
+  border-radius: 25px;
+  text-align: center;
+  font-weight: 600;
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.language-badge:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+/* Traducciones */
+.translations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.translation-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+  border: 1px solid #e3e8f0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.translation-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.translation-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(79, 172, 254, 0.15);
+  border-color: #4facfe;
+}
+
+.translation-card:hover::before {
+  transform: scaleY(1);
+}
+
+.translation-header {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.translation-item {
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+}
+
+.translation-item strong {
+  color: #4facfe;
+  font-weight: 600;
+}
+
+.translation-text {
+  color: #34495e;
+  font-size: 1rem;
+}
+
+/* Loading */
+.loading-container {
+  text-align: center;
+  padding: 3rem;
+}
+
+.loading-spinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #4facfe;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+  
+  .country-header h1 {
+    font-size: 2rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .translations-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animaciones de entrada */
+.fade-in {
+  animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+

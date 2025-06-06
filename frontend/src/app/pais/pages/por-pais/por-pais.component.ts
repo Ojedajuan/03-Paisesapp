@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { PaisService } from '@app/pais/services/pais.service';
-import { Country } from '@app/interfaces/pais.interface';
+import { PaisService } from '../../services/pais.service';
+import { Country } from '../../../interfaces/pais.interface';
 import { PaisTablaComponent } from "../../components/pais-tabla/pais-tabla.component";
 import { PaisInputComponent } from "../../components/pais-input/pais-input.component"; // ← Corregido: cambié 'paises' por 'pais'
 

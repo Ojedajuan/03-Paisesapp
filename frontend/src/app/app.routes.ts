@@ -1,7 +1,7 @@
 // app.routes.ts
 import { Routes } from '@angular/router';
-import { PorCapitalComponent, PorRegionComponent, VerPaisComponent } from '@app/exports';
-import { PorPaisComponent } from '@app/pais/pages/por-pais/por-pais.component';
+import { PorCapitalComponent, PorRegionComponent, VerPaisComponent } from './exports';
+import { PorPaisComponent } from './pais/pages/por-pais/por-pais.component';
 
 export const routes: Routes = [
   {

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PaisInputComponent } from "../../components/pais-input/pais-input.component";
 import { PaisService } from '../../services/pais.service';
-import { Country } from '@app/interfaces/pais.interface';
+import { Country } from '../../../interfaces/pais.interface';
 import { PaisTablaComponent } from "../../components/pais-tabla/pais-tabla.component";
 
 

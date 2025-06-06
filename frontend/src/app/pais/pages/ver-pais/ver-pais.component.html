@@ -1,0 +1,78 @@
+<div *ngIf="!pais; else divPais" class="loading-container">
+    <div class="loading-spinner"></div>
+    <h3 style="color: #4facfe;">Cargando información del país...</h3>
+</div>
+
+<ng-template #divPais>
+    <div class="main-container fade-in">
+        <!-- Header -->
+        <div class="country-header">
+            <h1>{{ pais.name.common }}</h1>
+        </div>
+
+        <!-- Main Info -->
+        <div class="country-info">
+            <div class="row">
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="flag-container">
+                        <img [src]="pais.flags.png" [alt]="pais.name.common + ' flag'" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-12 col-md-8">
+                    <div class="info-item">
+                        <i class="fas fa-city"></i>
+                        <strong>Capital:</strong> {{ pais.capital }}
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map"></i>
+                        <strong>Continente:</strong> {{ pais.continents[0] }}
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <strong>Subregión:</strong> {{ pais.subregion }}
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-users"></i>
+                        <strong>Población:</strong> {{ pais.population | number }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Languages Section -->
+        <div class="section-card">
+            <h3 class="section-title">
+                <i class="fas fa-language"></i>
+                Idiomas
+            </h3>
+            <div class="languages-grid">
+                <div class="language-badge" *ngFor="let idioma of (pais.languages | keyvalue)">
+                    {{ idioma.value }}
+                </div>
+            </div>
+        </div>
+
+        <!-- Translations Section -->
+        <div class="section-card">
+            <h3 class="section-title">
+                <i class="fas fa-globe"></i>
+                Traducciones
+            </h3>
+            <div class="translations-grid">
+                <div class="translation-card" *ngFor="let traduccion of (pais.translations | keyvalue)">
+                    <div class="translation-header">
+                        <i class="fas fa-flag"></i> {{ traduccion.key | uppercase }}
+                    </div>
+                    <div class="translation-item">
+                        <strong>Oficial:</strong>
+                        <div class="translation-text">{{ traduccion.value.official }}</div>
+                    </div>
+                    <div class="translation-item">
+                        <strong>Común:</strong>
+                        <div class="translation-text">{{ traduccion.value.common }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
